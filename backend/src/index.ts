@@ -1,28 +1,33 @@
 import express from "express";
 import cors from 'cors';
+import path from 'path';
 import { Request, Response } from "express"; 
 import { config } from "dotenv";
 import { healthRouter } from "./routes/health.route";
 
 config(); // loads .env
 const app = express();
+const frontendPath = path.join(__dirname, "../../frontend/dist");
 
 app.use(express.json());
 app.use(cors());
 app.use("/health", healthRouter);
+app.use(express.static(frontendPath));
 
-// 404 fallback
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, Express with TypeScript!');
-});
-
+//Example Api Test
 app.get('/Api_test', (req: Request, res: Response) => {
   res.send('Worked')
 });
 
+// Serving the react files 
+//app.get('*', (req, res) => {
+//  res.sendFile(path.join(frontendPath, "index.html"));
+//});
+
 app.use((_req: Request, res: Response) => {
   res.status(404).json({ message: "Not found" });
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`API → http://localhost:${PORT}`));

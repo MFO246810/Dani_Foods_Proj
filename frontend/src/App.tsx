@@ -6,7 +6,7 @@ function App() {
   useEffect(() => {
     const fetchdata = async () => {
       try{
-        const response = await fetch('http://localhost:3000/Api_test');
+        const response = await fetch('/Api_test');
         if(!response.ok){
           throw new Error(`HTTP error status: ${response.status}`);
         }
