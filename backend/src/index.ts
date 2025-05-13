@@ -4,6 +4,7 @@ import path from 'path';
 import { Request, Response } from "express"; 
 import { config } from "dotenv";
 import { healthRouter } from "./routes/health.route";
+import allUsers from "./routes/user.route";
 
 config(); // loads .env
 const app = express();
@@ -12,7 +13,8 @@ const frontendPath = path.join(__dirname, "../../frontend/dist");
 app.use(express.json());
 app.use(cors());
 app.use("/health", healthRouter);
-app.use(express.static(frontendPath));
+app.use("/user", allUsers);
+//app.use(express.static(frontendPath));
 
 //Example Api Test
 app.get('/Api_test', (req: Request, res: Response) => {
