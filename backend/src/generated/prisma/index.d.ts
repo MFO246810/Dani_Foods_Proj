@@ -10774,6 +10774,7 @@ export namespace Prisma {
     State: string | null
     ZipCode: number | null
     Password: string | null
+    Email: string | null
   }
 
   export type UsersMaxAggregateOutputType = {
@@ -10787,6 +10788,7 @@ export namespace Prisma {
     State: string | null
     ZipCode: number | null
     Password: string | null
+    Email: string | null
   }
 
   export type UsersCountAggregateOutputType = {
@@ -10800,6 +10802,7 @@ export namespace Prisma {
     State: number
     ZipCode: number
     Password: number
+    Email: number
     _all: number
   }
 
@@ -10825,6 +10828,7 @@ export namespace Prisma {
     State?: true
     ZipCode?: true
     Password?: true
+    Email?: true
   }
 
   export type UsersMaxAggregateInputType = {
@@ -10838,6 +10842,7 @@ export namespace Prisma {
     State?: true
     ZipCode?: true
     Password?: true
+    Email?: true
   }
 
   export type UsersCountAggregateInputType = {
@@ -10851,6 +10856,7 @@ export namespace Prisma {
     State?: true
     ZipCode?: true
     Password?: true
+    Email?: true
     _all?: true
   }
 
@@ -10951,6 +10957,7 @@ export namespace Prisma {
     State: string | null
     ZipCode: number | null
     Password: string
+    Email: string
     _count: UsersCountAggregateOutputType | null
     _avg: UsersAvgAggregateOutputType | null
     _sum: UsersSumAggregateOutputType | null
@@ -10983,6 +10990,7 @@ export namespace Prisma {
     State?: boolean
     ZipCode?: boolean
     Password?: boolean
+    Email?: boolean
     Employee_s?: boolean | Users$Employee_sArgs<ExtArgs>
     Orders?: boolean | Users$OrdersArgs<ExtArgs>
     User_Notifications?: boolean | Users$User_NotificationsArgs<ExtArgs>
@@ -11002,9 +11010,10 @@ export namespace Prisma {
     State?: boolean
     ZipCode?: boolean
     Password?: boolean
+    Email?: boolean
   }
 
-  export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"User_ID" | "User_img_uri" | "Username" | "FirstName" | "LastName" | "Address" | "City" | "State" | "ZipCode" | "Password", ExtArgs["result"]["users"]>
+  export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"User_ID" | "User_img_uri" | "Username" | "FirstName" | "LastName" | "Address" | "City" | "State" | "ZipCode" | "Password" | "Email", ExtArgs["result"]["users"]>
   export type UsersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Employee_s?: boolean | Users$Employee_sArgs<ExtArgs>
     Orders?: boolean | Users$OrdersArgs<ExtArgs>
@@ -11030,6 +11039,7 @@ export namespace Prisma {
       State: string | null
       ZipCode: number | null
       Password: string
+      Email: string
     }, ExtArgs["result"]["users"]>
     composites: {}
   }
@@ -11412,6 +11422,7 @@ export namespace Prisma {
     readonly State: FieldRef<"Users", 'String'>
     readonly ZipCode: FieldRef<"Users", 'Int'>
     readonly Password: FieldRef<"Users", 'String'>
+    readonly Email: FieldRef<"Users", 'String'>
   }
     
 
@@ -11957,7 +11968,8 @@ export namespace Prisma {
     City: 'City',
     State: 'State',
     ZipCode: 'ZipCode',
-    Password: 'Password'
+    Password: 'Password',
+    Email: 'Email'
   };
 
   export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
@@ -12024,7 +12036,8 @@ export namespace Prisma {
     Address: 'Address',
     City: 'City',
     State: 'State',
-    Password: 'Password'
+    Password: 'Password',
+    Email: 'Email'
   };
 
   export type UsersOrderByRelevanceFieldEnum = (typeof UsersOrderByRelevanceFieldEnum)[keyof typeof UsersOrderByRelevanceFieldEnum]
@@ -12574,6 +12587,7 @@ export namespace Prisma {
     State?: StringNullableFilter<"Users"> | string | null
     ZipCode?: IntNullableFilter<"Users"> | number | null
     Password?: StringFilter<"Users"> | string
+    Email?: StringFilter<"Users"> | string
     Employee_s?: Employee_sListRelationFilter
     Orders?: OrdersListRelationFilter
     User_Notifications?: User_NotificationsListRelationFilter
@@ -12590,6 +12604,7 @@ export namespace Prisma {
     State?: SortOrderInput | SortOrder
     ZipCode?: SortOrderInput | SortOrder
     Password?: SortOrder
+    Email?: SortOrder
     Employee_s?: Employee_sOrderByRelationAggregateInput
     Orders?: OrdersOrderByRelationAggregateInput
     User_Notifications?: User_NotificationsOrderByRelationAggregateInput
@@ -12598,11 +12613,11 @@ export namespace Prisma {
 
   export type UsersWhereUniqueInput = Prisma.AtLeast<{
     User_ID?: number
+    Username?: string
     AND?: UsersWhereInput | UsersWhereInput[]
     OR?: UsersWhereInput[]
     NOT?: UsersWhereInput | UsersWhereInput[]
     User_img_uri?: StringNullableFilter<"Users"> | string | null
-    Username?: StringFilter<"Users"> | string
     FirstName?: StringFilter<"Users"> | string
     LastName?: StringFilter<"Users"> | string
     Address?: StringNullableFilter<"Users"> | string | null
@@ -12610,10 +12625,11 @@ export namespace Prisma {
     State?: StringNullableFilter<"Users"> | string | null
     ZipCode?: IntNullableFilter<"Users"> | number | null
     Password?: StringFilter<"Users"> | string
+    Email?: StringFilter<"Users"> | string
     Employee_s?: Employee_sListRelationFilter
     Orders?: OrdersListRelationFilter
     User_Notifications?: User_NotificationsListRelationFilter
-  }, "User_ID">
+  }, "User_ID" | "Username">
 
   export type UsersOrderByWithAggregationInput = {
     User_ID?: SortOrder
@@ -12626,6 +12642,7 @@ export namespace Prisma {
     State?: SortOrderInput | SortOrder
     ZipCode?: SortOrderInput | SortOrder
     Password?: SortOrder
+    Email?: SortOrder
     _count?: UsersCountOrderByAggregateInput
     _avg?: UsersAvgOrderByAggregateInput
     _max?: UsersMaxOrderByAggregateInput
@@ -12647,6 +12664,7 @@ export namespace Prisma {
     State?: StringNullableWithAggregatesFilter<"Users"> | string | null
     ZipCode?: IntNullableWithAggregatesFilter<"Users"> | number | null
     Password?: StringWithAggregatesFilter<"Users"> | string
+    Email?: StringWithAggregatesFilter<"Users"> | string
   }
 
   export type DiscountedCreateInput = {
@@ -13087,6 +13105,7 @@ export namespace Prisma {
     State?: string | null
     ZipCode?: number | null
     Password: string
+    Email: string
     Employee_s?: Employee_sCreateNestedManyWithoutUsersInput
     Orders?: OrdersCreateNestedManyWithoutUsersInput
     User_Notifications?: User_NotificationsCreateNestedManyWithoutUsersInput
@@ -13103,6 +13122,7 @@ export namespace Prisma {
     State?: string | null
     ZipCode?: number | null
     Password: string
+    Email: string
     Employee_s?: Employee_sUncheckedCreateNestedManyWithoutUsersInput
     Orders?: OrdersUncheckedCreateNestedManyWithoutUsersInput
     User_Notifications?: User_NotificationsUncheckedCreateNestedManyWithoutUsersInput
@@ -13118,6 +13138,7 @@ export namespace Prisma {
     State?: NullableStringFieldUpdateOperationsInput | string | null
     ZipCode?: NullableIntFieldUpdateOperationsInput | number | null
     Password?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
     Employee_s?: Employee_sUpdateManyWithoutUsersNestedInput
     Orders?: OrdersUpdateManyWithoutUsersNestedInput
     User_Notifications?: User_NotificationsUpdateManyWithoutUsersNestedInput
@@ -13134,6 +13155,7 @@ export namespace Prisma {
     State?: NullableStringFieldUpdateOperationsInput | string | null
     ZipCode?: NullableIntFieldUpdateOperationsInput | number | null
     Password?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
     Employee_s?: Employee_sUncheckedUpdateManyWithoutUsersNestedInput
     Orders?: OrdersUncheckedUpdateManyWithoutUsersNestedInput
     User_Notifications?: User_NotificationsUncheckedUpdateManyWithoutUsersNestedInput
@@ -13150,6 +13172,7 @@ export namespace Prisma {
     State?: string | null
     ZipCode?: number | null
     Password: string
+    Email: string
   }
 
   export type UsersUpdateManyMutationInput = {
@@ -13162,6 +13185,7 @@ export namespace Prisma {
     State?: NullableStringFieldUpdateOperationsInput | string | null
     ZipCode?: NullableIntFieldUpdateOperationsInput | number | null
     Password?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
   }
 
   export type UsersUncheckedUpdateManyInput = {
@@ -13175,6 +13199,7 @@ export namespace Prisma {
     State?: NullableStringFieldUpdateOperationsInput | string | null
     ZipCode?: NullableIntFieldUpdateOperationsInput | number | null
     Password?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -13789,6 +13814,7 @@ export namespace Prisma {
     State?: SortOrder
     ZipCode?: SortOrder
     Password?: SortOrder
+    Email?: SortOrder
   }
 
   export type UsersAvgOrderByAggregateInput = {
@@ -13807,6 +13833,7 @@ export namespace Prisma {
     State?: SortOrder
     ZipCode?: SortOrder
     Password?: SortOrder
+    Email?: SortOrder
   }
 
   export type UsersMinOrderByAggregateInput = {
@@ -13820,6 +13847,7 @@ export namespace Prisma {
     State?: SortOrder
     ZipCode?: SortOrder
     Password?: SortOrder
+    Email?: SortOrder
   }
 
   export type UsersSumOrderByAggregateInput = {
@@ -14699,6 +14727,7 @@ export namespace Prisma {
     State?: string | null
     ZipCode?: number | null
     Password: string
+    Email: string
     Orders?: OrdersCreateNestedManyWithoutUsersInput
     User_Notifications?: User_NotificationsCreateNestedManyWithoutUsersInput
   }
@@ -14714,6 +14743,7 @@ export namespace Prisma {
     State?: string | null
     ZipCode?: number | null
     Password: string
+    Email: string
     Orders?: OrdersUncheckedCreateNestedManyWithoutUsersInput
     User_Notifications?: User_NotificationsUncheckedCreateNestedManyWithoutUsersInput
   }
@@ -14744,6 +14774,7 @@ export namespace Prisma {
     State?: NullableStringFieldUpdateOperationsInput | string | null
     ZipCode?: NullableIntFieldUpdateOperationsInput | number | null
     Password?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
     Orders?: OrdersUpdateManyWithoutUsersNestedInput
     User_Notifications?: User_NotificationsUpdateManyWithoutUsersNestedInput
   }
@@ -14759,6 +14790,7 @@ export namespace Prisma {
     State?: NullableStringFieldUpdateOperationsInput | string | null
     ZipCode?: NullableIntFieldUpdateOperationsInput | number | null
     Password?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
     Orders?: OrdersUncheckedUpdateManyWithoutUsersNestedInput
     User_Notifications?: User_NotificationsUncheckedUpdateManyWithoutUsersNestedInput
   }
@@ -14943,6 +14975,7 @@ export namespace Prisma {
     State?: string | null
     ZipCode?: number | null
     Password: string
+    Email: string
     Employee_s?: Employee_sCreateNestedManyWithoutUsersInput
     User_Notifications?: User_NotificationsCreateNestedManyWithoutUsersInput
   }
@@ -14958,6 +14991,7 @@ export namespace Prisma {
     State?: string | null
     ZipCode?: number | null
     Password: string
+    Email: string
     Employee_s?: Employee_sUncheckedCreateNestedManyWithoutUsersInput
     User_Notifications?: User_NotificationsUncheckedCreateNestedManyWithoutUsersInput
   }
@@ -15030,6 +15064,7 @@ export namespace Prisma {
     State?: NullableStringFieldUpdateOperationsInput | string | null
     ZipCode?: NullableIntFieldUpdateOperationsInput | number | null
     Password?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
     Employee_s?: Employee_sUpdateManyWithoutUsersNestedInput
     User_Notifications?: User_NotificationsUpdateManyWithoutUsersNestedInput
   }
@@ -15045,6 +15080,7 @@ export namespace Prisma {
     State?: NullableStringFieldUpdateOperationsInput | string | null
     ZipCode?: NullableIntFieldUpdateOperationsInput | number | null
     Password?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
     Employee_s?: Employee_sUncheckedUpdateManyWithoutUsersNestedInput
     User_Notifications?: User_NotificationsUncheckedUpdateManyWithoutUsersNestedInput
   }
@@ -15400,6 +15436,7 @@ export namespace Prisma {
     State?: string | null
     ZipCode?: number | null
     Password: string
+    Email: string
     Employee_s?: Employee_sCreateNestedManyWithoutUsersInput
     Orders?: OrdersCreateNestedManyWithoutUsersInput
   }
@@ -15415,6 +15452,7 @@ export namespace Prisma {
     State?: string | null
     ZipCode?: number | null
     Password: string
+    Email: string
     Employee_s?: Employee_sUncheckedCreateNestedManyWithoutUsersInput
     Orders?: OrdersUncheckedCreateNestedManyWithoutUsersInput
   }
@@ -15445,6 +15483,7 @@ export namespace Prisma {
     State?: NullableStringFieldUpdateOperationsInput | string | null
     ZipCode?: NullableIntFieldUpdateOperationsInput | number | null
     Password?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
     Employee_s?: Employee_sUpdateManyWithoutUsersNestedInput
     Orders?: OrdersUpdateManyWithoutUsersNestedInput
   }
@@ -15460,6 +15499,7 @@ export namespace Prisma {
     State?: NullableStringFieldUpdateOperationsInput | string | null
     ZipCode?: NullableIntFieldUpdateOperationsInput | number | null
     Password?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
     Employee_s?: Employee_sUncheckedUpdateManyWithoutUsersNestedInput
     Orders?: OrdersUncheckedUpdateManyWithoutUsersNestedInput
   }

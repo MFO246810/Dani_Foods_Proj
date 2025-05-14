@@ -17,6 +17,11 @@ app.use("/user", allUsers);
 //app.use(express.static(frontendPath));
 
 //Example Api Test
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello This is the backend')
+});
+
 app.get('/Api_test', (req: Request, res: Response) => {
   res.send('Worked')
 });

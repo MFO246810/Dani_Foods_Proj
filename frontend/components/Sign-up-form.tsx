@@ -7,6 +7,7 @@ function ContactForm(){
         Lastname: '',
         username: '',
         password:'',
+        email: '',
     });
 
     const [SucessMessage, SetSucessMessage] = useState('');
@@ -22,7 +23,7 @@ function ContactForm(){
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('Form submitted:', formData);
-        const res = await fetch('http://localhost/3000/user/CreateUsers', {
+        const res = await fetch('http://localhost:3000/user/CreateUsers', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
@@ -32,7 +33,8 @@ function ContactForm(){
             FirstName: '',
             Lastname: '',
             username: '',
-            password: ''
+            password: '',
+            email: ''
         });
 
         if(res.ok){
@@ -40,7 +42,7 @@ function ContactForm(){
             SetSucessMessage('Form submitted successfully!');
         } else {
             console.log("Form Did not sent Sucessfully")
-            SetSucessMessage('Form submitted unsuccessfully!')
+            SetSucessMessage('Form Did not sent Sucessfully')
         }
         // You can now send formData to your backend API
     };
@@ -57,7 +59,10 @@ function ContactForm(){
                     <input type="text" name="Lastname" value={formData.Lastname} onChange={handleChange} />
                 </label>
                 <br />
-    
+                <label>Email:
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                </label>
+
                 <label>Username:
                     <input type="text" name="username" value={formData.username} onChange={handleChange} />
                 </label>

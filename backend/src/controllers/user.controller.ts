@@ -10,21 +10,44 @@ async function getAllUsers(){
 
 export const CreateUser = async (req: Request, res: Response) => {
     try{
-        const {Firstname, Lastname, username, password} =  req.body;
+        const {FirstName, Lastname, username, email, password} =  req.body;
 
         const newUser = await prisma.users.create({
             data: {
-                FirstName: Firstname,
+                FirstName: FirstName,
                 LastName: Lastname,
-                Username: username, 
+                Username: username,
+                Email: email,
                 Password: password
             },
         });
         res.status(201).json(newUser)
     } catch(error){
         res.status(500).json({ error: 'Could not create user' });
+        console.log(error);
     }
 } 
+
+export const UpdateUser =  async (req: Request, res: Response) => {
+    try{
+        const { uname } = req.body;
+        const User = await prisma.users.findUnique({
+            where: {
+                Username: uname
+            },
+        });
+
+        if (!User) {
+            res.status(404).send("User Cannot be found");
+        } else{
+            res.json(User);
+        }
+        
+    } catch(error){
+        res.status(500).json({ error: 'Could not Find User' });
+        console.log(error);
+    }
+}
 
 export const getUsers = async (_req: Request, res: Response) => {
     try{

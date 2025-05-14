@@ -191,7 +191,8 @@ exports.Prisma.UsersScalarFieldEnum = {
   City: 'City',
   State: 'State',
   ZipCode: 'ZipCode',
-  Password: 'Password'
+  Password: 'Password',
+  Email: 'Email'
 };
 
 exports.Prisma.SortOrder = {
@@ -234,7 +235,8 @@ exports.Prisma.UsersOrderByRelevanceFieldEnum = {
   Address: 'Address',
   City: 'City',
   State: 'State',
-  Password: 'Password'
+  Password: 'Password',
+  Email: 'Email'
 };
 
 
