@@ -235,7 +235,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Franklin\\Dani_Foods_ver(2)\\Dani_Foods_Proj\\backend\\src\\generated\\prisma",
+      "value": "/home/munachim/Dani_Food_Proj/Dani_Foods_Proj/backend/src/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -244,17 +244,16 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Franklin\\Dani_Foods_ver(2)\\Dani_Foods_Proj\\backend\\prisma\\schema.prisma",
+    "sourceFilePath": "/home/munachim/Dani_Food_Proj/Dani_Foods_Proj/backend/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../../../prisma",
   "clientVersion": "6.7.0",

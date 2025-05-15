@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react'
 import ContactForm from '../components/Sign-up-form'
 import UpdateForm from '../components/Update-Form'
+import DeleteUserForm from '../components/Delete-form'
 
 function App() {
   const [api_call, SetApiCall] = useState("Not Worked"); 
@@ -28,8 +29,10 @@ function App() {
   <div>
       <h3> Sign Up Form </h3>
       <ContactForm />
-      <h3> Update Form </h3>
+      <h3> Update User </h3>
       <UpdateForm />
+      <h3>Delete User</h3>
+      <DeleteUserForm />
       <h3> Current Users:  </h3>
       <p>{api_call}</p>
   </div>
